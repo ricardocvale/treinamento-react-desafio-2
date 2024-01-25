@@ -18,7 +18,7 @@ describe("given title component", () => {
     expect(title.textContent).toBe("Test");
   });
 
-  if("should render subtitle", () =>{
+  it("should render subtitle", () =>{
     render(<Title textTitle="Test" subTitle="subTitle"/>);
 
     const title = screen.getByTestId("title-styled");
