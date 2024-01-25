@@ -2,7 +2,7 @@ import Title from "../Components/title";
 import InputFieldForm from "../Components/inputfieldform";
 import Button from "../Components/button";
 import { useState } from "react";
-import { DivAccount, DivContainer, DivStatement, FormStyled } from "./styles";
+import { DivAccount, DivContainer, DivPage, DivStatement,  DivStatementHeader, FormStyled } from "./styles";
 import { api } from "../shared/api";
 import Image from "../Components/image";
 
@@ -45,33 +45,43 @@ export default function CreateAccount() {
 
   return (
 
-    <DivContainer>
+    <DivPage>
+      <DivContainer>
 
-      <DivStatement>
+        <DivStatement>
 
-        <Image src="./img/logo-compass.svg" alt="Logo Compass" />
+          <DivStatementHeader>
+            <Image src="./img/logo-compass.svg" alt="Logo Compass" />
+          </DivStatementHeader>
 
-        <Title textTitle="My Statement" />
+          
+            <Title textTitle="My Statement" />
 
-        <Image src="./img/welcome.svg" alt="welcome image" />
+            <Image src="./img/welcome.svg" alt="welcome image" />
 
-      </DivStatement>
+            <p>
+              Track your statement and account balance
+            </p>
+         
 
-      <DivAccount>
-        <Title textTitle="Create your account" />
+        </DivStatement>
 
-        <FormStyled onSubmit={saveAccount}>
-          <InputFieldForm textLabel="Full Name" placeHolder="Input Default" field="fullname" value={fullname} onChangeValue={value => setFullname(value)} />
-          <InputFieldForm textLabel="User ID" placeHolder="ex: user@example.com" type="email" field="userid" value={userid} onChangeValue={value => setUserid(value)} />
-          <InputFieldForm textLabel="Birth Date" placeHolder="yyyy - mm - dd" type="date" field="birthdate" value={birthdate} onChangeValue={value => setBirthdate(value)} />
-          <InputFieldForm textLabel="Password" placeHolder="Input Default" type="password" field="password" alue={password} onChangeValue={value => setPassword(value)} />
+        <DivAccount>
+          <Title textTitle="Create your account" />
 
-          <Button text="Create" />
-        </FormStyled>
+          <FormStyled onSubmit={saveAccount}>
+            <InputFieldForm textLabel="Full Name" placeHolder="Input Default" field="fullname" value={fullname} onChangeValue={value => setFullname(value)} />
+            <InputFieldForm textLabel="User ID" placeHolder="ex: user@example.com" type="email" field="userid" value={userid} onChangeValue={value => setUserid(value)} />
+            <InputFieldForm textLabel="Birth Date" placeHolder="yyyy - mm - dd" type="date" field="birthdate" value={birthdate} onChangeValue={value => setBirthdate(value)} />
+            <InputFieldForm textLabel="Password" placeHolder="Input Default" type="password" field="password" alue={password} onChangeValue={value => setPassword(value)} />
 
-      </DivAccount>
+            <Button text="Create" />
+          </FormStyled>
 
-    </DivContainer>
+        </DivAccount>
+
+      </DivContainer>
+    </DivPage>
 
   )
 }
